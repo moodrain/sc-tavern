@@ -11,7 +11,10 @@
                 </el-card>
                 <el-row :justify="pc ? 'space-between' : 'space-evenly'">
                     <el-col v-for="item in homeItems" :key="item.name" :xl="7" :xs="11">
-                        <el-card class="home-item" @click="$router.push(item.name)">{{ item.text }}</el-card>
+                        <el-card class="home-item" @click="$router.push(item.name)">
+                            <component :is="item.icon" style="width: 2em; height: 2em;" />
+                            <p>{{ item.text }}</p>
+                        </el-card>
                     </el-col>
                 </el-row>
             </el-col>
@@ -26,7 +29,7 @@ export default {
     data() {
         return {
             main: 'home',
-            homeItemArr: ['角色|character', '卡牌|card', '升级|upgrade', '单位|unit', '拓展包|pack', '更新|update'],
+            homeItemArr: ['角色|character|User', '卡牌|card|Tickets', '升级|upgrade|Top', '单位|unit|Aim', '拓展包|pack|Suitcase', '更新|update|Bell'],
         }
     },
     computed: {
@@ -36,7 +39,8 @@ export default {
                     let info = e.split('|')
                     return {
                         text: info[0],
-                        name: info[1]
+                        name: info[1],
+                        icon: info[2],
                     }
                 })
             }

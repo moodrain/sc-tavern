@@ -23,6 +23,7 @@ export default {
             let hp = infos[0].split(',')
             e.hp = hp[0]
             e.sp = hp.length > 1 ? hp[1] : 0
+            e.atk = infos[1]
             let def = infos[2].split(',')
             e.def = def[0]
             e.armor = this.toArmour(def[1])
@@ -41,6 +42,7 @@ export default {
                 }
             }
             e.groupStr = groupArr.join(',')
+            e.interval = infos[4]
             return e
         })
         return {
@@ -60,7 +62,6 @@ export default {
             }
         },
         setShow(toShow, on) {
-            console.log(on)
             localStorage.setItem('show.' + toShow, on)
             this.show.comment = on
         }

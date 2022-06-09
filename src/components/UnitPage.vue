@@ -30,19 +30,20 @@
                 <el-divider></el-divider>
                 <el-table :data="searchRs">
                     <el-table-column prop="name" label="名称" width="100" fixed></el-table-column>
-                    <el-table-column prop="name" label="别名" width="100"></el-table-column>
+                    <el-table-column prop="nick" label="别名" width="100"></el-table-column>
                     <el-table-column prop="hp" label="生命" width="60"></el-table-column>
                     <el-table-column prop="sp" label="护盾" width="60"></el-table-column>
                     <el-table-column prop="atk" label="攻击" width="60"></el-table-column>
+                    <el-table-column prop="interval" label="攻速" width="60"></el-table-column>
                     <el-table-column label="射程" width="60">
                         <template #default="scope">
                             <p
                                 v-if="scope.row.range[0] != scope.row.range[1] && scope.row.range[0] > -1 && scope.row.range[1] > -1">
-                                {{ scope.row.range[0] }} (对地) <br /> {{ scope.row.range[1] }} (对空)</p>
+                                {{ scope.row.range[0] }} (地) <br /> {{ scope.row.range[1] }} (空)</p>
                             <p v-if="scope.row.range[0] == scope.row.range[1]">{{ scope.row.range[0] }}</p>
-                            <p v-if="scope.row.range[0] > -1 && scope.row.range[1] == -1">{{ scope.row.range[0] }} (对地)
+                            <p v-if="scope.row.range[0] > -1 && scope.row.range[1] == -1">{{ scope.row.range[0] }} (地)
                             </p>
-                            <p v-if="scope.row.range[1] > -1 && scope.row.range[0] == -1">{{ scope.row.range[1] }} (对空)
+                            <p v-if="scope.row.range[1] > -1 && scope.row.range[0] == -1">{{ scope.row.range[1] }} (空)
                             </p>
                         </template>
                     </el-table-column>
@@ -90,7 +91,7 @@ export default {
                 let units = this.units.units
                 if (this.search.name) {
                     units = units.filter((e) => {
-                        return e.name.indexOf(this.search.name) != -1
+                        return e.name.indexOf(this.search.name) != -1 || e.nick.indexOf(this.search.name) != -1
                     })
                 }
                 if (this.search.group) {
