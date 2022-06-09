@@ -35,7 +35,7 @@
                 </el-form>
                 <el-divider></el-divider>
                 <el-table :data="searchRs">
-                    <el-table-column prop="name" label="名称" width="100"></el-table-column>
+                    <el-table-column prop="name" label="名称" fixed width="100"></el-table-column>
                     <el-table-column prop="star" label="星级" width="60"></el-table-column>
                     <el-table-column prop="unit" label="单位" :min-width="pc ? 0 : 200"></el-table-column>
                     <el-table-column label="描述" :min-width="pc ? 0 : 200">

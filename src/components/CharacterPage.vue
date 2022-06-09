@@ -18,7 +18,7 @@
                 </el-form>
                 <el-divider></el-divider>
                 <el-table :data="searchRs">
-                    <el-table-column prop="name" label="名称" width="80"></el-table-column>
+                    <el-table-column prop="name" label="名称" fixed width="80"></el-table-column>
                     <el-table-column prop="skill" label="技能"></el-table-column>
                     <el-table-column v-if="show.comment" prop="comment" label="评价"></el-table-column>
                 </el-table>

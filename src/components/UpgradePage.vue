@@ -23,7 +23,7 @@
                 </el-form>
                 <el-divider></el-divider>
                 <el-table :data="searchRs">
-                    <el-table-column prop="name" label="名称" width="100"></el-table-column>
+                    <el-table-column prop="name" label="名称" fixed width="100"></el-table-column>
                     <el-table-column prop="effect" label="效果" :min-width="pc ? 0 : 200"></el-table-column>
                     <el-table-column prop="group" label="类型" width="100"></el-table-column>
                     <el-table-column v-if="show.comment" prop="comment" label="评价" :min-width="pc ? 0 : 200"></el-table-column>
