@@ -43,7 +43,10 @@
                             <div v-html="scope.row.function"></div>
                         </template>
                     </el-table-column>
-                    <el-table-column prop="three" label="三连" :min-width="pc ? 0 : 200"></el-table-column>
+                    <el-table-column label="三连" :min-width="pc ? 0 : 200">
+                        <template #default="scope">
+                            <div v-html="scope.row.three"></div>
+                        </template></el-table-column>
                     <el-table-column prop="group" label="种族" width="100"></el-table-column>
                     <el-table-column prop="pack" label="拓展包" width="100"></el-table-column>
                     <el-table-column v-if="show.comment" label="评价" :min-width="pc ? 0 : 200">
