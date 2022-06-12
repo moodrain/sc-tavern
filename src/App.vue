@@ -48,7 +48,7 @@ export default {
         return {
             info, updates, characters, cards, packs, units, upgrades,
             show: {
-                comment: true
+                comment: false
             },
             pc: true
         }
@@ -68,7 +68,13 @@ export default {
     },
     created() {
         this.pc = document.body.clientHeight < document.body.clientWidth
-        this.show.comment = localStorage.getItem('show.comment') == 'false' ? false : true
+        let localShowComment = localStorage.getItem('show.comment')
+        if (localShowComment === 'true') {
+            this.show.comment = true
+        }
+        if (localShowComment === 'true') {
+            this.show.comment = false
+        }
     }
 }
 </script>
